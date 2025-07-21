@@ -7,6 +7,7 @@ import (
 )
 
 func RegisterRoutes() {
-	http.HandleFunc("/secure/login", controllers.LoginHandler)
-	http.HandleFunc("/login", controllers.LoginHandler)
+	http.HandleFunc("/secure/login/get", controllers.LoginGet)
+	http.HandleFunc("/secure/login/post", controllers.LoginPost)
+
 }

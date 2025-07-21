@@ -12,4 +12,5 @@ func main() {
 	routes.RegisterRoutes()
 	fmt.Println("Sever listening on port 8080")
 	http.ListenAndServe(":8080", nil)
+
 }

@@ -1,35 +1,21 @@
 <!DOCTYPE html>
-<html lang="vi">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Đăng nhập IT Service</title>
-    <link rel="stylesheet" href="../../static/css/login.css">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="../../static/css/login.css">
 </head>
 <body>
-    <div class="login-box">
-        <h2>Đăng nhập IT Service</h2>
-        <form method="POST" action="/secure/login">
-            <div class="form-group">
-                <label for="username">Tên đăng nhập</label>
-                <input type="text" id="username" name="username" required />
-            </div>
-            <div class="form-group">
-                <label for="password">Mật khẩu</label>
-                <input type="password" id="password" name="password" required />
-            </div>
-            <div class="form-group">
-                <label for="authMethod">Phương thức đăng nhập</label>
-                <select id="authMethod" name="auth_method">
-                    <option value="local">Local</option>
-                    <option value="ldap">LDAP</option>
-                </select>
-            </div>
-            <div class="forgot">
-                <a href="/secure/forgot-password">Quên mật khẩu?</a>
-            </div>
-            <button type="submit" class="submit-btn">Đăng nhập</button>
-        </form>
-    </div>
-    <script src="../../static/javascripts/login.js"></script>
+    <form action="/secure/login" method="POST">
+        <input type="text" name="username" placeholder="Username" required><br>
+        <input type="password" name="password" placeholder="Password" required><br>
+        <select name="auth_method">
+            <option value="local">Local</option>
+            <option value="ldap">LDAP</option>
+        </select><br>
+        <button type="submit">Login</button>
+    </form>
+    {{if .Message}}
+        <p>{{.Message}}</p>
+    {{end}}
 </body>
 </html>
