@@ -1,20 +1,16 @@
 package controllers
 
 import (
-	"html/template"
 	"net/http"
+
+	handleController "github.com/vPt-King/ITMGMT/handleController"
 )
 
 func LoginHandler(w http.ResponseWriter, r *http.Request) {
-	tmpl, err := template.ParseFiles("views/both/login.html")
-	if err != nil {
-		http.Error(w, err.Error(), http.StatusInternalServerError)
-		return
+	switch r.Method {
+	case http.MethodGet:
+		handleController.LoginHandleGet(w, r)
+	case http.MethodPost:
+		handleController.LoginHandlePost(w, r)
 	}
-	data := map[string]interface{}{
-		"Title":   "Trang chu",
-		"Heading": "Chao mung den voi IT Admin",
-		"Message": "Day la he thong quan tri IT",
-	}
-	tmpl.Execute(w, data)
 }

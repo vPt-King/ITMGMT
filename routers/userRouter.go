@@ -7,6 +7,6 @@ import (
 )
 
 func RegisterRoutes() {
-	http.HandleFunc("/secure/login", controllers.LoginHandler)
 	http.HandleFunc("/login", controllers.LoginHandler)
+	http.HandleFunc("/home", controllers.HomeHandler)
 }
